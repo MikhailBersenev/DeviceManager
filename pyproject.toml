@@ -1,5 +1,22 @@
 [project]
 name = "DeviceManager"
+version = "0.1.0"
+description = "USB and serial device monitor desktop app"
+requires-python = ">=3.10"
+
+dependencies = [
+  "PySide6",
+  "pyserial",
+  "pyusb",
+]
 
 [tool.pyside6-project]
-files = ["main.py", "main.qml"]
+files = [
+  "main.py",
+  "qml/Main.qml",
+  "qml/components/TopBar.qml",
+  "qml/components/DeviceListPanel.qml",
+  "qml/components/DeviceDetailsPanel.qml",
+  "src/devicemanager/__init__.py",
+  "src/devicemanager/device_manager.py",
+]
