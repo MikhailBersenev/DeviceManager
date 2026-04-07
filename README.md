@@ -46,6 +46,14 @@ pip install -r requirements.txt
 python main.py
 ```
 
+## Build
+
+Build portable Linux AppImage:
+
+```bash
+./build_appimage.sh
+```
+
 ## Notes
 
 - USB device details may require extra permissions on Linux.
