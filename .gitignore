@@ -39,6 +39,7 @@ Thumbs.db
 *.pro.user*
 *.qbs.user*
 CMakeLists.txt.user*
+*.toml.user*
 
 # xemacs temporary files
 *.flc
@@ -80,3 +81,4 @@ CMakeLists.txt.user*
 .rcc/
 .uic/
 /build*/
+.gitignore
