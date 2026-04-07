@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=DeviceManager
+Comment=USB and serial device monitor
+Terminal=false
+Categories=Utility;Development;
+Path=/home/mikhail/Nextcloud/Coding/PythonProjects/DeviceManager
+Exec=/home/mikhail/Nextcloud/Coding/PythonProjects/DeviceManager/.venv/bin/python /home/mikhail/Nextcloud/Coding/PythonProjects/DeviceManager/main.py
+Icon=/home/mikhail/Nextcloud/Coding/PythonProjects/DeviceManager/assets/app_icon.svg
+StartupWMClass=DeviceManager
