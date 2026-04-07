@@ -54,7 +54,21 @@ Build portable Linux AppImage:
 ./build_appimage.sh
 ```
 
+Build AppImage in Ubuntu 22.04 Docker (lower glibc baseline):
+
+```bash
+./build_appimage_docker.sh
+```
+
+For AppImage-friendly graphics (Wayland/EGL issues), `main.py` sets defaults (only if unset):
+
+- `QT_QPA_PLATFORM=xcb`
+- `QT_QUICK_BACKEND=software`
+
 ## Notes
 
-- USB device details may require extra permissions on Linux.
-- If USB access is restricted, the app still shows serial ports and reports USB read errors in the UI.
+- **USB listing** needs PyUSB with a **libusb 1.0** backend. Install the system package if you see `no backend available`:
+  - Arch / CachyOS: `sudo pacman -S libusb`
+  - Debian / Ubuntu: `sudo apt install libusb-1.0-0`
+- USB device access may still require permissions (udev rules / user group) on Linux.
+- If USB access is restricted, the app still shows serial ports and reports errors in the UI.

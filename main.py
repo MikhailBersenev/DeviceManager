@@ -12,6 +12,9 @@ from src.devicemanager.device_manager import DeviceManager
 def main() -> int:
     """Application entry point."""
     os.environ.setdefault('QT_QUICK_CONTROLS_STYLE', 'Fusion')
+    # AppImage / minimal runtime: avoid Wayland+EGL issues; user can override.
+    os.environ.setdefault('QT_QPA_PLATFORM', 'xcb')
+    os.environ.setdefault('QT_QUICK_BACKEND', 'software')
 
     app = QGuiApplication(sys.argv)
     app.setApplicationName('DeviceManager')

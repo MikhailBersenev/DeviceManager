@@ -1,0 +1,20 @@
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-venv \
+    python3-pip \
+    wget \
+    ca-certificates \
+    file \
+    git \
+    desktop-file-utils \
+    libusb-1.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /workspace
+
+# Build command is executed by the wrapper script:
+# ./build_appimage.sh

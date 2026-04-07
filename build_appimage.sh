@@ -59,7 +59,20 @@ EOF
 
 echo "[6/7] Running linuxdeploy (without Qt plugin)..."
 
-"$TOOLS_DIR/linuxdeploy-x86_64.AppImage" \
+LINUXDEPLOY_BIN="$TOOLS_DIR/linuxdeploy-x86_64.AppImage"
+if [[ ! -x "$LINUXDEPLOY_BIN" ]]; then
+  echo "Error: linuxdeploy AppImage not found at $LINUXDEPLOY_BIN"
+  exit 1
+fi
+
+# Always use extracted AppRun to avoid FUSE dependency in containers.
+rm -rf "$TOOLS_DIR/squashfs-root"
+(
+  cd "$TOOLS_DIR"
+  "$LINUXDEPLOY_BIN" --appimage-extract >/dev/null
+)
+
+"$TOOLS_DIR/squashfs-root/AppRun" \
   --appdir "$APPDIR" \
   --desktop-file "$APPDIR/usr/share/applications/DeviceManager.desktop" \
   --icon-file "$APPDIR/usr/share/icons/hicolor/scalable/apps/devicemanager.svg" \
